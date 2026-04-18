@@ -1,0 +1,10 @@
+LICENCE.txt
+MANIFEST.in
+README.md
+setup.py
+ImputeFISH/__init__.py
+ImputeFISH.egg-info/PKG-INFO
+ImputeFISH.egg-info/SOURCES.txt
+ImputeFISH.egg-info/dependency_links.txt
+ImputeFISH.egg-info/requires.txt
+ImputeFISH.egg-info/top_level.txt
