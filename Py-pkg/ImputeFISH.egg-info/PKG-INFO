@@ -1,8 +1,8 @@
 Metadata-Version: 2.4
 Name: ImputeFISH
-Version: 0.0.5
+Version: 0.0.6
 Summary: ImputeFISH: A Spatially Aware and Scalable Framework for Gene Imputation in Imaging-Based Spatial Transcriptomics
-Home-page: 
+Home-page: https://github.com/swainasish/ImputeFISH
 Author: Asish Kumar Swain
 Author-email: swainkasish@gmail.com
 License: MIT
@@ -20,6 +20,7 @@ Dynamic: author
 Dynamic: author-email
 Dynamic: classifier
 Dynamic: description
+Dynamic: home-page
 Dynamic: keywords
 Dynamic: license
 Dynamic: license-file

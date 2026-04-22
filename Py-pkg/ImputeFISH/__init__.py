@@ -106,7 +106,7 @@ def reference_selection(sp_ann_df,sc_ann_df,class_list,sc_gt):
     return final_dtset,sc_gt
     
 #%% 
-def GeneEnhancement(scdf,spdf,genes_to_predict,x_cor,y_cor,referece_selection=False,batch_info =False):
+def GeneEnhancement(scdf,spdf,genes_to_predict,x_cor,y_cor,reference_selection=False,batch_info =False):
     t1= time.time()
     scdf=scdf.reset_index(drop=True)
     spdf=spdf.reset_index(drop=True)
@@ -119,7 +119,7 @@ def GeneEnhancement(scdf,spdf,genes_to_predict,x_cor,y_cor,referece_selection=Fa
     #slicing both df
     scdf_cg=scdf.loc[:,common_genes]
     spdf_cg=spdf.loc[:,common_genes]
-    if referece_selection ==True:
+    if reference_selection ==True:
         scdf_cg,sc_g = reference_selection(spdf_cg,scdf_cg,batch_info,sc_g)
     
     scdf_cg = normalisation(scdf_cg)
@@ -163,7 +163,7 @@ def GeneEnhancement(scdf,spdf,genes_to_predict,x_cor,y_cor,referece_selection=Fa
     # #predict the expression 
     ridge_cv = RidgeCV(alphas=[1,10,100,1000,10000,100000])
     ridge_cv.fit(sc_wei_dict,sc_g)
-    print(ridge_cv.alpha_)
+    #print(ridge_cv.alpha_)
     model = Ridge(alpha=ridge_cv.alpha_)
     model.fit(sc_wei_dict,sc_g)
     sp_pred = model.predict(sp_wei_dict)
