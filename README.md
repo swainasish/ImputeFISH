@@ -29,11 +29,11 @@ You can install **ImputeFISH** using pip:
 ```bash
 pip install imputefish
 ```
-## Usage 
+## Short-Usage 
 ```bash
 from ImputeFISH import GeneEnhancement
 impfish_res = GeneEnhancement(sc_mat,sp_mat,g_list,sp_x,sp_y,
-                                 referece_selection=True,
+                                 reference_selection=True,
                                  batch_info=batch_info)
 ```
 Argument Details \
@@ -43,3 +43,64 @@ g_list: Target genes to impute (present in scRNA-seq, absent in spatial) \
 sp_x, sp_y: Spatial coordinates of cells/spots \
 reference_selection (optional): Enables co-expression-based selection of optimal scRNA-seq reference \
 batch_info (optional): Batch labels for scRNA-seq data (if multiple datasets are used) 
+
+## Dummy-example
+```bash
+import numpy as np
+import pandas as pd
+from ImputeFISH import GeneEnhancement
+
+# -----------------------------
+# 1. scRNA-seq reference matrix
+# -----------------------------
+# Shape: cells × genes
+sc_mat = pd.DataFrame(
+    np.random.rand(200, 100),
+    columns=[f"Gene{i}" for i in range(100)]
+)
+
+# ---------------------------------------
+# 2. Spatial transcriptomics matrix
+# ---------------------------------------
+# Shape: spots/cells × measured genes
+sp_mat = pd.DataFrame(
+    np.random.rand(100, 50),
+    columns=[f"Gene{i}" for i in range(50)]
+)
+
+# ---------------------------------------
+# 3. Target genes to impute
+# ---------------------------------------
+# Must be present in sc_mat but not measured in spatial data
+g_list = ["Gene88", "Gene89"]
+
+# ---------------------------------------
+# 4. Spatial coordinates
+# ---------------------------------------
+sp_x = np.random.rand(100)
+sp_y = np.random.rand(100)
+
+# ---------------------------------------
+# 5. Optional: batch information (scRNA-seq)
+# ---------------------------------------
+batch_info = np.random.choice(["Batch1", "Batch2"], 200)
+
+# ---------------------------------------
+# 6. Run ImputeFISH
+# ---------------------------------------
+impfish_res = GeneEnhancement(
+    sc_mat,
+    sp_mat,
+    g_list,
+    sp_x,
+    sp_y,
+    reference_selection=True,
+    batch_info=batch_info
+)
+
+# ---------------------------------------
+# 7. Output
+# ---------------------------------------
+# impfish_res: imputed expression matrix for target genes
+print(impfish_res.head())
+```
