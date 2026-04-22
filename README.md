@@ -29,3 +29,17 @@ You can install **ImputeFISH** using pip:
 ```bash
 pip install imputefish
 ```
+## Usage 
+```bash
+from ImputeFISH import GeneEnhancement
+impfish_res = GeneEnhancement(sc_mat,sp_mat,g_list,sp_x,sp_y,
+                                 referece_selection=True,
+                                 batch_info=batch_info)
+```
+Argument Details 
+sc_mat: scRNA-seq reference expression matrix (in pandas DataFrame format)
+sp_mat: Spatial expression matrix (in pandas DataFrame format)
+g_list: Target genes to impute (present in scRNA-seq, absent in spatial)
+sp_x, sp_y: Spatial coordinates of cells/spots
+reference_selection (optional): Enables co-expression-based selection of optimal scRNA-seq reference
+batch_info (optional): Batch labels for scRNA-seq data (if multiple datasets are used)
