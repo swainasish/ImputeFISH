@@ -55,7 +55,7 @@ def small_sampeling(scdf,spdf,n_cell=500):
 
     return sc_sp_cooncate
 
-def reference_selection(sp_ann_df,sc_ann_df,class_list,sc_gt):
+def ref_selection(sp_ann_df,sc_ann_df,class_list,sc_gt):
     class_list=np.array(class_list)
     class_names = np.unique(class_list)
     classwise_dfs = [sc_ann_df.iloc[np.where(class_list==i)[0],:] for i in class_names]
@@ -120,7 +120,7 @@ def GeneEnhancement(scdf,spdf,genes_to_predict,x_cor,y_cor,reference_selection=F
     scdf_cg=scdf.loc[:,common_genes]
     spdf_cg=spdf.loc[:,common_genes]
     if reference_selection ==True:
-        scdf_cg,sc_g = reference_selection(spdf_cg,scdf_cg,batch_info,sc_g)
+        scdf_cg,sc_g = ref_selection(spdf_cg,scdf_cg,batch_info,sc_g)
     
     scdf_cg = normalisation(scdf_cg)
     spdf_cg = normalisation(spdf_cg)

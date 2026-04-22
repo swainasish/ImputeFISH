@@ -10,7 +10,7 @@ classifiers = [
  
 setup(
   name='ImputeFISH',
-  version='0.0.6',
+  version='0.0.7',
   description='ImputeFISH: A Spatially Aware and Scalable Framework for Gene Imputation in Imaging-Based Spatial Transcriptomics',
   long_description=open('README.md').read() ,
   url="https://github.com/swainasish/ImputeFISH", 
