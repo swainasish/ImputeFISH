@@ -47,7 +47,7 @@ sp_x, sp_y: Spatial coordinates of cells/spots \
 reference_selection (optional): Enables co-expression-based selection of optimal scRNA-seq reference \
 batch_info (optional): Batch labels for scRNA-seq data (if multiple datasets are used) 
 
-## Dummy-example
+## Example
 ```bash
 import numpy as np
 import pandas as pd
