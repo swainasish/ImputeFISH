@@ -29,6 +29,9 @@ You can install **ImputeFISH** using pip:
 ```bash
 pip install imputefish
 ```
+## Tutorials and Reproducibility section 
+### Tutorial-1 (On MERFISH dataset) 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1j2t6kzDEaMNihiTXc6lFZsK8MP4bGuq8?usp=sharing)
 ## Short-Usage 
 ```bash
 from ImputeFISH import GeneEnhancement
